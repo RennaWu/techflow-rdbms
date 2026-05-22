@@ -22,14 +22,15 @@ TechFlow is a specialized Relational Database Management System engineered to so
 
 ## 👤 My Role
 
-**Project Lead & Database Architect** (Team of 3)
+**Project Lead, Database Architect & Frontend Developer** (Team of 3)
 
-Responsible for Sections 4, 5, and 6 of the project deliverable:
+Responsible for Sections 4, 5, and 6 of the project deliverable, plus full frontend implementation:
 
 - 🏗️ **Designed the complete 15-entity Entity-Relationship Diagram** with Crow's-Foot notation across 6 functional modules
 - 📐 **Authored normalization analysis** ensuring 3NF compliance and resolving v1.0 schema inconsistencies
 - 🔐 **Architected the RBAC security model** with 4 distinct roles and permission matrix
 - 📜 **Designed all data dictionary specifications** — 15 tables, constraints, data types optimized for Oracle 19c
+- 🎨 **Built the complete React frontend** — 5 pages with hook-based state management, consistent design system, integrated with all 20+ REST endpoints
 - 🗂️ **Structured the 6-module organization** (Organizational, User Management, Core Recruitment, Skills & Matching, Evaluation & Feedback, Governance & Audit)
 - 👥 **Led team coordination** and cross-deliverable design reviews
 
@@ -62,6 +63,45 @@ Responsible for Sections 4, 5, and 6 of the project deliverable:
 | 4 | **Skills & Matching** | Skills, Candidate_Skills (M:N bridge) | Proficiency-scored skill matching (1–5) |
 | 5 | **Evaluation & Feedback** | Interviews, Interview_Feedback | Panel interview support with separate scoring |
 | 6 | **Governance & Audit** | Audit_Logs | Granular record-level activity tracking |
+
+---
+
+## 🖼️ User Interface
+
+I designed and built the complete React frontend — 5 pages with hook-based state management, a consistent design system, and integration with all 20+ REST endpoints.
+
+### Candidates Management
+
+![Candidates Page](01_candidates.png)
+
+Centralized candidate management with real-time search across name, email, and phone fields. Each row supports inline edit and delete actions, with all changes persisted directly to the Oracle database via the REST API. The CRUD pills in the header surface which operations the page demonstrates.
+
+### Job Postings
+
+![Jobs Page](02_jobs.png)
+
+Job postings with normalized references to departments and locations. Deleting a job cascades through associated applications and feedback within a single transaction, with confirmation showing the count of affected records before execution.
+
+### Recruitment Pipeline
+
+![Applications Page](03_applications.png)
+
+Stage-by-stage candidate progression with independent outcome tracking. An application can be at the "Offer" stage while still showing "Pending" outcome — demonstrating the schema's separation of pipeline position and final result. Each row shows the candidate's email as secondary information.
+
+### Interview Feedback
+
+![Feedback Page](04_feedback.png)
+
+Structured interview evaluation with technical and communication scores (0–10) plus qualitative notes. The realistic seed data illustrates the kind of analytics this schema enables — score distributions, candidate rankings, and trend analysis across the recruitment pipeline.
+
+### Frontend Stack
+
+- **React + TypeScript** — type-safe component development
+- **Vite** — instant hot module replacement for rapid iteration
+- **Tailwind CSS** — consistent design tokens and utility-first styling
+- **Hook-based state** — `useState`, `useCallback`, `useEffect` patterns
+- **REST integration** — 20+ endpoints consumed across 5 pages
+- **Color-coded CRUD operation pills** — self-documenting page headers indicating Create / Read / Update / Delete capabilities
 
 ---
 
@@ -175,6 +215,7 @@ Selected examples demonstrated in the project (full code available on request):
 | Relationships | 16 |
 | Database indexes | 12 |
 | REST API endpoints | 20+ |
+| Frontend pages | 5 |
 | Sample candidates (seed data) | 18 |
 | Sample applications (seed data) | 28 |
 | Team size | 3 |
@@ -199,7 +240,7 @@ The full source code is available upon request:
 
 ## 👥 Team
 
-This was a 3-person team project for DAMG 6210 (Spring 2026). This repository showcases my individual contributions: the ERD design, schema architecture, normalization analysis, RBAC framework, and security design (Sections 4, 5, 6, and ERD).
+This was a 3-person team project for DAMG 6210 (Spring 2026). This repository showcases my individual contributions: the ERD design, schema architecture, normalization analysis, RBAC framework, security design, and the complete React frontend (Sections 4, 5, 6, and ERD).
 
 ---
 
